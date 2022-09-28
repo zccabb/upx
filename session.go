@@ -445,7 +445,7 @@ func (sess *Session) GetStartBetweenEndFiles(upPath, localPath string, match *Ma
 			}
 		}
 		if fp >= endList && endList != "" && fInfo.IsDir {
-			objectsConfig.QuitChan <- false
+			close(objectsConfig.QuitChan)
 			break
 		}
 	}

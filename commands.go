@@ -3,7 +3,6 @@ package main
 import (
 	"encoding/json"
 	"fmt"
-	"log"
 	"os"
 	"path"
 	"path/filepath"
@@ -284,10 +283,8 @@ func NewGetCommand() cli.Command {
 				}
 			}
 			if mc.Start != "" || mc.End != "" {
-				log.Println("SE")
 				session.GetStartBetweenEndFiles(upPath, localPath, mc, c.Int("w"))
 			} else {
-				log.Println("NOSE")
 				session.Get(upPath, localPath, mc, c.Int("w"))
 			}
 			return nil
